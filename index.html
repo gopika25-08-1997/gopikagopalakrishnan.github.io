@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gopika Gopalakrishnan - Digital Marketing & Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --neon-pink: #FF006E;
+            --neon-cyan: #00F5FF;
+            --neon-purple: #B100FF;
+            --neon-green: #00FF41;
+            --neon-yellow: #FFBE0B;
+            --dark-bg: #0A0E27;
+            --dark-secondary: #1A1F3A;
+            --text-light: #E8E8FF;
+            --text-muted: #A0A0C0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0A0E27 0%, #1a0a2e 50%, #0f0620 100%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 110, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 245, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        header {
+            padding: 2rem;
+            border-bottom: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--neon-cyan) 0%, var(--neon-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            min-height: 100vh;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-content h1 span {
+            background: linear-gradient(90deg, var(--neon-pink) 0%, var(--neon-purple) 50%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 0 0 30px rgba(255, 0, 110, 0.3);
+            }
+            50% {
+                text-shadow: 0 0 50px rgba(0, 245, 255, 0.5);
+            }
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 2px solid;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--neon-pink);
+            border-color: var(--neon-pink);
+            color: #000;
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(255, 0, 110, 0.8);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--neon-cyan);
+            color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 245, 255, 0.1);
+            box-shadow: 0 0 40px rgba(0, 245, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .neon-box {
+            width: 280px;
+            height: 350px;
+            border: 3px solid var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.6), inset 0 0 30px rgba(0, 245, 255, 0.1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .neon-box::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+        }
+
+        .neon-box::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            right: 40px;
+            bottom: 40px;
+            border: 1px solid var(--neon-purple);
+            box-shadow: 0 0 10px rgba(177, 0, 255, 0.3);
+        }
+
+        .box-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            border-top: 2px solid rgba(0, 245, 255, 0.2);
+        }
+
+        section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.6);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-card {
+            background: rgba(26, 31, 58, 0.6);
+            border: 2px solid var(--neon-cyan);
+            padding: 1.5rem;
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.2);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 0, 110, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card h3 {
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-left: 3px solid var(--neon-cyan);
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: var(--neon-pink);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(255, 0, 110, 0.6);
+        }
+
+        .timeline-item h3 {
+            color: var(--neon-pink);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .timeline-item .date {
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding: 1rem 0;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .timeline-item li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--neon-green);
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 245, 255, 0.1));
+            border: 1px solid var(--neon-cyan);
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 0;
+            color: var(--neon-cyan);
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-badge:hover {
+            border-color: var(--neon-pink);
+            color: var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 110, 0.4);
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(26, 31, 58, 0.5);
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+            margin-top: 2rem;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--neon-cyan);
+            border-radius: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+        }
+
+        .contact-links a:hover {
+            background: rgba(0, 245, 255, 0.1);
+            box-shadow: 0 0 25px rgba(0, 245, 255, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid var(--neon-cyan);
+            background: rgba(10, 14, 39, 0.8);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: 3rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <nav>
+                <div class="logo">GOPIKA GOPALAKRISHNAN</div>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Digital Marketing <span>Specialist</span> & Developer</h1>
+                <p>Transforming brands through cutting-edge digital strategies, SEO optimization, and full-stack development. Based in Kerala, India.</p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="#experience" class="btn btn-secondary">See My Work</a>
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-badge">WordPress</div>
+                    <div class="tech-badge">Meta Ads</div>
+                    <div class="tech-badge">SEO</div>
+                    <div class="tech-badge">Angular</div>
+                    <div class="tech-badge">PHP</div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="neon-box">
+                    <div class="box-content">GG</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-muted); max-width: 800px;">
+                I'm a Digital Marketing Executive and Developer with a unique blend of technical expertise and marketing acumen. With 6+ years of experience including current role at Aitrich Technologies, I specialize in creating data-driven marketing campaigns and building scalable solutions. My passion lies in bridging the gap between creative strategy and technical implementation to deliver measurable business results.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Core Competencies</h2>
+            <h3 style="color: var(--neon-pink); margin-bottom: 2rem; font-size: 1.3rem; text-transform: uppercase;">Digital Marketing</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>SEO & SEM</h3>
+                    <p>On-page, off-page, and technical SEO; Google Ads & Meta Ads management</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Content Strategy</h3>
+                    <p>Blog content, social media marketing, email campaigns & automation</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Conversion Optimization</h3>
+                    <p>CRO techniques, landing page optimization, A/B testing</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Marketing Automation</h3>
+                    <p>Pabbly, Zapier, Zoho Bigin CRM integration for lead management</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Social Media</h3>
+                    <p>Strategy, content creation, community management & analytics</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <p>WordPress, Elementor, responsive design & user experience</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--neon-cyan); margin-bottom: 2rem; margin-top: 3rem; font-size: 1.3rem; text-transform: uppercase;">Technical Stack</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend</h3>
+                    <p>Angular, HTML5, CSS3, JavaScript, Bootstrap, jQuery</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend</h3>
+                    <p>PHP, MySQL, MySQLi, AJAX, API Integration</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools & Platforms</h3>
+                    <p>Google Analytics, Search Console, Elementor, WordPress</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Languages</h3>
+                    <p>English, Malayalam</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Professional Journey</h2>
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <h3>Digital Marketing Executive / WordPress Developer</h3>
+                    <div class="date">March 2024 – Present</div>
+                    <p style="margin-bottom: 1rem;">Aitrich Technologies</p>
+                    <ul>
+                        <li>Planned, executed, and optimized digital marketing campaigns across Meta Ads generating qualified leads</li>
+                        <li>Created and managed landing pages using WordPress/Elementor, improving conversion rates through CRO techniques</li>
+                        <li>Developed and implemented comprehensive SEO strategies (on-page, off-page, technical) improving keyword rankings</li>
+                        <li>Produced engaging content for blogs, social media, and marketing collateral aligned with brand objectives</li>
+                        <li>Designed and delivered digital marketing training sessions for interns and team members</li>
+                        <li>Served as a webinar presenter delivering live workshops and client-facing sessions</li>
+                        <li>Integrated automation tools (Pabbly, Zapier) with Zoho Bigin CRM for streamlined lead management</li>
+                        <li>Coordinated with cross-functional teams to align marketing with business goals</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Software Developer (Angular/PHP)</h3>
+                    <div class="date">March 2019 – October 2022</div>
+                    <p style="margin-bottom: 1rem;">Aitrich Technologies</p>
+                    <ul>
+                        <li><strong>Serenity Life App:</strong> Built and maintained Admin Module using PHP, MySQLi, AJAX, Bootstrap, jQuery; integrated APIs and optimized for responsive performance</li>
+                        <li><strong>Scan & Learn Arabic App:</strong> Developed Admin Panel with Angular enabling efficient content management with user-friendly interface</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="margin-bottom: 1rem;">Education</h2>
+            <div style="background: rgba(26, 31, 58, 0.6); border: 2px solid var(--neon-purple); padding: 2rem; border-radius: 0;">
+                <h3 style="color: var(--neon-purple); margin-bottom: 0.5rem;">Diploma in Computer Engineering</h3>
+                <p style="color: var(--text-muted); margin-bottom: 0.5rem;">2015 – 2018</p>
+                <p style="color: var(--text-light);">Board of Technical Examination<br>GOVT WP C Nedupuzha, Thrissur, Kerala, India</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-section">
+                <h2>Let's Connect</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 1.1rem;">Ready to discuss your digital marketing or development needs?</p>
+                <div class="contact-links">
+                   
+                    <a href="https://www.linkedin.com/in/gopika-saninraj/" target="_blank">LinkedIn</a>
+                    <a href="https://www.google.com/maps/place/Kodungallur,+Kerala,+India" target="_blank">📍 Kerala, India</a>
+                </div>
+               
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Gopika Gopalakrishnan. All rights reserved. </p>
+        </footer>
+    </div>
+</body>
+</html>
